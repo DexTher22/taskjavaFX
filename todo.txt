@@ -1,0 +1,3 @@
+TODO: A következő gombra kivesszük a kijelölést
+TODO: Jegyezze meg, a választásokat
+TODO: A mentés gombra tárolja a választásokat.

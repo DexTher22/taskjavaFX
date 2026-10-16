@@ -36,20 +36,39 @@ public class MainController {
 
     @FXML
     void onClickNextButton(ActionEvent event) {
+        startNextLoad();
+    }
 
+    void startNextLoad() {
+        if(taskList.size() -1 > actualIndex) {
+            actualIndex++;
+            loadTask(actualIndex);
+        }
     }
 
     @FXML
     void onClickPreviousButton(ActionEvent event) {
+        startPreviousLoad();
+    }
 
+    void startPreviousLoad() {
+        if(actualIndex > 0) {
+            actualIndex--;
+            loadTask(actualIndex);
+        }
     }
 
     @FXML
     void onClickSaveButton(ActionEvent event) {
+        startSave();
+    }
 
+    void startSave() {
+        
     }
 
     List<Task> taskList;
+    int actualIndex = 0;
 
     @FXML
     void initialize() {
@@ -73,5 +92,6 @@ public class MainController {
         answer3Radio.setText(task.getAnswer3());
         answer4Radio.setText(task.getAnswer4());
     }
+
 
 }
