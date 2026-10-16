@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class FileDataSource implements DataSource {
 
     private String fileName = "task.csv";
+
     @Override
     public List<Task> readData() {
         try {
@@ -17,14 +18,12 @@ public class FileDataSource implements DataSource {
             System.err.println(e.getMessage());
             return null;
         }
-
-        
     }
 
     private List<Task> tryReadData() throws FileNotFoundException {
         List<Task> taskList = new ArrayList<>();
         File file = new File(fileName);
-        try(Scanner scanner = new Scanner(file)) {
+        try(Scanner scanner = new Scanner(file, "utf-8")) {
             scanner.nextLine();
             while(scanner.hasNext()) {
                 String line = scanner.nextLine();

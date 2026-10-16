@@ -1,5 +1,10 @@
 package com.example.controllers;
 
+import java.util.List;
+
+import com.example.models.FileDataSource;
+import com.example.models.Task;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
@@ -42,6 +47,31 @@ public class MainController {
     @FXML
     void onClickSaveButton(ActionEvent event) {
 
+    }
+
+    List<Task> taskList;
+
+    @FXML
+    void initialize() {
+        System.out.println("Betölt...");
+        loadData();
+    }
+
+    void loadData() {
+        FileDataSource file = new FileDataSource();
+        taskList = file.readData();
+        loadTask(0);
+
+    }
+
+    void loadTask(int index) {
+        Task task = taskList.get(index);
+        idField.setText(task.getId());
+        questionField.setText(task.getQuestion());
+        answer1Radio.setText(task.getAnswer1());
+        answer2Radio.setText(task.getAnswer2());
+        answer3Radio.setText(task.getAnswer3());
+        answer4Radio.setText(task.getAnswer4());
     }
 
 }

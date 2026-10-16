@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.MainController">
    <children>
       <Label layoutX="286.0" layoutY="14.0" text="Feladat" />
@@ -22,7 +21,7 @@
       <RadioButton fx:id="answer3Radio" layoutX="26.0" layoutY="225.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$answers" />
       <RadioButton fx:id="answer4Radio" layoutX="26.0" layoutY="278.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$answers" />
       <Button layoutX="408.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickNextButton" text="Következő" />
-      <Button layoutX="113.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickPreviousButton" prefHeight="25.0" prefWidth="71.0" text="Ellőző" />
+      <Button layoutX="113.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickPreviousButton" prefHeight="25.0" prefWidth="71.0" text="Előző" />
       <Button layoutX="264.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickSaveButton" prefHeight="25.0" prefWidth="71.0" text="Mentés" />
    </children>
 </Pane>
