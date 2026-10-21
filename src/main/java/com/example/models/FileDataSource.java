@@ -2,6 +2,8 @@ package com.example.models;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -47,6 +49,33 @@ public class FileDataSource implements DataSource {
         task.setAnswer4(parts[5]);
         task.setCorrect(parts[6]);
         return task;
+    }
+
+    @Override
+    public void writeAnswers(Answer answer) {
+        try {
+            tryWriteAnswers(answer);
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    private void tryWriteAnswers(Answer answer) throws FileNotFoundException {
+        PrintWriter printWriter = new PrintWriter("answers.txt"); 
+        String line = answer.getName() + makeStringAnswer(answer.getAnswerList());
+        printWriter.write(line);
+        printWriter.write("\n");
+
+        printWriter.close();
+    }
+
+    private String makeStringAnswer(List<Integer> answerList) {
+        StringBuffer sb = new StringBuffer();
+        for (Integer answer : answerList) {
+            sb.append(":");
+            sb.append(String.valueOf(answer));
+        }
+        return sb.toString();
     }
     
 }
